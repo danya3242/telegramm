@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фитнес</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      text-align: center;
+      padding: 30px;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 360px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      font-size: 18px;
+      margin: 10px;
+      padding: 10px;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Фитнес-приложение</h2>
+    <p>Введите ваш вес и рост</p>
+    <input type="number" id="weight" placeholder="Вес (кг)">
+    <input type="number" id="height" placeholder="Рост (см)">
+    <br>
+    <button onclick="calculate()">Рассчитать</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculate() {
+      const weight = parseFloat(document.getElementById("weight").value);
+      const height = parseFloat(document.getElementById("height").value);
+      if (weight && height) {
+        const kcal = 10 * weight + 6.25 * height - 5 * 25 + 5;
+        document.getElementById("result").innerText = Норма: ${Math.round(kcal)} ккал/день;
+      } else {
+        document.getElementById("result").innerText = "Введите вес и рост корректно";
+      }
+    }
+  </script>
+</body>
+</html>
